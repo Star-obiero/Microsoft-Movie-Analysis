@@ -1,72 +1,109 @@
-# Phase 1 Project Template - Minimum Viable Product (MVP)
+
+
+# Microsoft Movie Analysis
+
+## Overview
+
+This project explores the key factors that contribute to a movie's box office success. Microsoft is considering entering the original film production market, and this analysis helps identify patterns in genres, directors, runtime, budget, and audience ratings that influence a film's total gross revenue.
+
+## Business Problem
+
+Microsoft wants to understand what makes a movie financially successful in order to guide future investments in original video content. By analyzing historical movie data, we aim to discover trends and correlations that point to high-grossing films.
+
+## Data
+
+The dataset was formed by merging movie information from IMDb and Box Office Mojo. It includes the following features:
+
+* `start_year`: Release year of the movie
+* `runtime_minutes`: Length of the movie
+* `genres`: One or more genres per film
+* `averagerating`: IMDb average rating
+* `numvotes`: Number of votes on IMDb
+* `total_gross`: Total revenue generated (target variable)
+* `director`, `budget`, and other supporting features
+
+We cleaned the data by:
+
+* Handling multiple genres via `.str.split()` and `.explode()`
+* Removing or imputing missing values
+* Converting financial and numerical columns to appropriate formats
+
+## Methods
+
+We conducted exploratory data analysis and modeling in the following steps:
+
+### Correlation Analysis
+
+A correlation heatmap was used to examine linear relationships between `total_gross` and other numeric variables. Key takeaways:
+
+* `numvotes` had the strongest positive correlation with `total_gross` (0.67)
+* `averagerating` also showed a positive, though weaker, correlation
+
+### Grouped Visualizations
+
+We built bar plots showing how total gross varies by genre and release year. By splitting multi-genre entries, we accurately visualized:
+
+* Average gross per genre per year
+* Trends across time that reveal which genres consistently perform well
+
+### Iterative Refinement
+
+We improved our approach by:
+
+* Starting with scatter plots and histograms
+* Cleaning and exploding genres for more granular analysis
+* Dropping irrelevant columns and formatting currency values
+* Imputing missing values with mean or mode where appropriate
+
+These techniques helped us extract meaningful signals from the data and refine our understanding of what drives box office success.
+
+## Evaluation
+
+Our exploratory analysis effectively addressed the business problem, even without predictive modeling.
+
+**Key insights include:**
+
+* Genres like **Action** and **Adventure** dominate in total gross performance.
+* Directors like **Christopher Nolan** and **Steven Spielberg** consistently lead high-grossing projects.
+* **Summer releases** (especially May to July) outperform other months.
+* **Higher budgets** generally correlate with higher gross, though with diminishing returns.
+* Films between **100 and 130 minutes** long tend to perform better.
+
+Although we did not build a regression or machine learning model, our visual and statistical evidence strongly supports actionable conclusions.
+
+**Confidence in Generalization:**
+
+* The data reflects a wide range of films from 2010–2018
+* The strong performance of genres and patterns over time suggest robust trends
+* However, changes in streaming consumption or global events could affect future applicability
+
+## Conclusions
+
+### Summary & Recommendations
+
+From our analysis, Microsoft should:
+
+* Focus on producing **Action** and **Adventure** films
+* Aim for **Season releases** to maximize box office potential
+* Monitor **IMDb ratings** and **vote counts** as proxies for audience engagement
+* Invest in **well-budgeted** projects, while managing cost-effectiveness
+
+### Limitations
+
+* Missing values required imputation or reduced the sample size
+* No machine learning models were deployed to predict gross revenue
+* Streaming data and modern distribution models were not included
+
+### Next Steps
+
+To enhance this analysis:
+
+* Build a linear regression model to predict `total_gross`
+* Add features like marketing spend, star power, and international sales
+* Expand the dataset to include post-2019 data and streaming metrics
+
+This project provides a strong foundation for Microsoft's strategic entry into movie production based on real-world data and clear trends.
 
 ![blueprint](images/blueprint.png)
 
-This repository is like a blueprint, providing structure for your first End of Phase Project. We suggest you base your Phase 1 project off of this repository so you can focus less on formatting and organization, and more on the _analysis and communication skills_ that will support your progress through the course. This template is designed to make your project portfolio-ready in order to impress the future employers who will review it. 
 
-## Repository Contents
-
-Below is a list of the contents of this repository - instructions for using them are in the next section.
-
-- `README.md`: The README for this repo branch explaining it's contents - you're reading it now
-- `TEMPLATE_README.md`: An example of a project README that provides a brief overview of your whole project
-- `dsc-phase1-project-template.ipynb`: A starter Jupyter Notebook with headings, code examples and guiding questions
-- `DS_Project_Presentation_Template.pdf`: A starter slide deck presenting your project - here is an [editable version](https://docs.google.com/presentation/d/1PaiH1bleXnhiPjTPsAXQSiAK0nkaRlseQIr_Yb-0mz0/copy)
-- `zippedData` folder: A folder for the data you reference with your code
-- `images` folder: A folder for the images you reference in your files 
-- `.gitignore`: A hidden file that tells git to not track certain files and folders
-
-## Instructions For Using This Repository
-
-### Fork This Repository
-
-**For a group project**, have only one team member do these steps:
-
-1. Fork this repository to your personal account
-   - In GitHub, go to this repository and click the "Fork" button in the upper right
-   
-2. Change the name of your fork of this repo to a _descriptive_ name of your choosing
-   - In GitHub, go to your fork of this repo -> "Settings" -> "Options" -> "Repository Name" -> "Rename"
-   - Make the name descriptive, since potential employers will read it. Ex: "Microsoft-Movie-Analysis" is better than "Project-1"
-
-3. Use `git clone` to clone your fork of this repo to your local computer
-
-4. **For a group project**, add team members as collaborators to your fork of this repo
-   - In GitHub, go to your fork of this repo -> "Settings" -> "Manage Access" -> "Invite Teams or People"
-   - Add your project team members as collaborators & send them the repo GitHub URL
-
-### Work In Your Fork Of This Repository
-
-- Work in the repo clone that you created on your local machine
-- Start writing and coding in the Jupyter Notebook `dsc-phase1-project-template.ipynb`
-- Fill in the README template in `TEMPLATE_README.md`
-- Use `git add`, `git commit`, and `git push` often to update your repo in GitHub
-   - For a refresher on how to do this and why it's important, review Topic 2: Bash and Git
-
-### Use The Slide Template
-
-1. Go to [this link](https://docs.google.com/presentation/d/1PaiH1bleXnhiPjTPsAXQSiAK0nkaRlseQIr_Yb-0mz0/copy) to make an editable copy of the slide deck in your own Google Drive account
-2. Go to "Slide," select "Change Theme," and pick a theme you like so your presentation doesn't look like everyone else's
-3. **For a group project**, click the "Share" button and add your teammates as editors
-
-### Tidy Up Your Project
-
-- Change the file name of the Jupyter Notebook (`dsc-phase1-project-template.ipynb`) to something more descriptive
-- Save an appropriately-named PDF version of your slide deck to the repository
-- Rename the template readme you've been working in by running `git mv TEMPLATE_README.md README.md`
-- Delete unnecessary files from the repo using `git rm`
-   - The presentation PDF: `DS_Project_Presentation_Template.pdf`
-   - Any unused data files in the `zippedData` folder
-   - Any unused images in the `images` folder
-- Utilize the .gitignore file to ignore large unzipped data files in the `zippedData` folder
-   - Add `*.csv`,`*.tsv`, and `*.db` to the .gitignore file
-
-### Submit Your Project
-
-To submit your project, please follow the instructions in the "Project Submission & Review" page in the Milestones course.
-
-***
-### Notes
-
-- The visualizations in the notebook use best practices for visualization that you should try to emulate. For example, they have clear axes, descriptive titles, and appropriate number formatting
-- The `dsc-phase1-project-template.ipynb` is intended to be the _final version_ of your project. The first notebook you create will not look like this. You are encouraged to start with a very disorderly notebook and clean it as you go
