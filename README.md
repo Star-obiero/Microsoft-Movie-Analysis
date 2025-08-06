@@ -20,7 +20,6 @@ The dataset was formed by merging movie information from IMDb and Box Office Moj
 * `averagerating`: IMDb average rating
 * `numvotes`: Number of votes on IMDb
 * `total_gross`: Total revenue generated (target variable)
-* `director`, `budget`, and other supporting features
 
 We cleaned the data by:
 
@@ -50,10 +49,10 @@ We built bar plots showing how total gross varies by genre and release year. By 
 
 We improved our approach by:
 
-* Starting with scatter plots and histograms
+* Starting with  histograms
 * Cleaning and exploding genres for more granular analysis
 * Dropping irrelevant columns and formatting currency values
-* Imputing missing values with mean or mode where appropriate
+* Imputing missing values with mean , mode or median where appropriate
 
 These techniques helped us extract meaningful signals from the data and refine our understanding of what drives box office success.
 
@@ -84,7 +83,6 @@ Although we did not build a regression or machine learning model, our visual and
 From our analysis, Microsoft should:
 
 * Focus on producing **Action** and **Adventure** films
-* Aim for **Season releases** to maximize box office potential
 * Monitor **IMDb ratings** and **vote counts** as proxies for audience engagement
 * Invest in **well-budgeted** projects, while managing cost-effectiveness
 
