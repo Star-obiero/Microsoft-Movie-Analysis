@@ -68,14 +68,9 @@ These techniques helped us extract meaningful signals from the data and refine o
 
 Our exploratory analysis effectively addressed the business problem, even without predictive modeling.
 
-**Key insights include:**
+**Key insight include:**
 
 * Genres like **Action** and **Adventure** dominate in total gross performance.
-* Directors like **Christopher Nolan** and **Steven Spielberg** consistently lead high-grossing projects.
-* **Summer releases** (especially May to July) outperform other months.
-* **Higher budgets** generally correlate with higher gross, though with diminishing returns.
-* Films between **100 and 130 minutes** long tend to perform better.
-
 Although we did not build a regression or machine learning model, our visual and statistical evidence strongly supports actionable conclusions.
 
 **Confidence in Generalization:**
@@ -92,7 +87,6 @@ From our analysis, Microsoft should:
 
 * Focus on producing **Action** and **Adventure** films
 * Monitor **IMDb ratings** and **vote counts** as proxies for audience engagement
-* Invest in **well-budgeted** projects, while managing cost-effectiveness
 
 ### Limitations
 
