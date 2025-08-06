@@ -26,6 +26,8 @@ We cleaned the data by:
 * Handling multiple genres via `.str.split()` and `.explode()`
 * Removing or imputing missing values
 * Converting financial and numerical columns to appropriate formats
+* It had no duplicates
+* it also had outliers but meaningfull ones I din't want toget rid of them for reason
 
 ## Methods
 
@@ -38,12 +40,18 @@ A correlation heatmap was used to examine linear relationships between `total_gr
 * `numvotes` had the strongest positive correlation with `total_gross` (0.67)
 * `averagerating` also showed a positive, though weaker, correlation
 
+For that reason i had to dvelop a scatterplot to illustrate more on the relation between total gross and numvote cose of the strong positive correlation.Key takeaways:
+* The correlation was a positive one yes, but it din't necessary mean that ones a film had a high numvote it will have a high total gross
+* Most movies with low numvotes had low total gross 
+
 ### Grouped Visualizations
 
 We built bar plots showing how total gross varies by genre and release year. By splitting multi-genre entries, we accurately visualized:
 
 * Average gross per genre per year
 * Trends across time that reveal which genres consistently perform well
+
+Our scatter plot was also grouped into geners
 
 ### Iterative Refinement
 
